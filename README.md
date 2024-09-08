@@ -31,7 +31,7 @@ Terraform module to create a Podman container on Linux with Ansible
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_systemd"></a> [systemd](#module\_systemd) | git@github.com:deusjack/module-systemd.git | 1.0.0 |
+| <a name="module_systemd"></a> [systemd](#module\_systemd) | git@github.com:deusjack/module-systemd.git | 1.1.0 |
 
 ## Resources
 
