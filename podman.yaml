@@ -1,0 +1,27 @@
+---
+- hosts: "{{ hostname }}"
+  gather_facts: no
+  tasks:
+    - name: Run podman container
+      containers.podman.podman_container:
+        name: "{{ container_name }}"
+        image: "{{ image }}"
+        state: started
+        recreate: true
+        ports: "{{ ports }}"
+        cap_add: "{{ cap_add }}"
+        cap_drop: "{{ cap_drop }}"
+        privileged: "{{ privileged }}"
+        user: "{{ namespace_user | default(omit) }}"
+        command: "{{ command | default(omit) }}"
+        volume: "{{ volumes }}"
+        env: "{{ env | default(omit) }}"
+        network: "{{ network }}"
+        conmon_pidfile: "{{ conmon_pidfile | default(omit) }}"
+        labels: "{{ labels | default(omit) }}"
+        quadlet_options:
+          - "AutoUpdate=registry"
+          - "Pull=true"
+          - |
+            [Install]
+            WantedBy=default.target
