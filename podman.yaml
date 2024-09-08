@@ -19,6 +19,7 @@
         network: "{{ network }}"
         conmon_pidfile: "{{ conmon_pidfile | default(omit) }}"
         labels: "{{ labels | default(omit) }}"
+        log_driver: journald
         quadlet_filename: "{{ container_name }}"
         #quadlet_dir: /etc/containers/systemd/
         quadlet_options:
