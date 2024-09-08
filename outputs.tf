@@ -6,12 +6,12 @@ output "triggers" {
 
 output "name" {
   description = "Name of the container"
-  value       = var.name
+  value       = ansible_playbook.container.extra_vars.container_name
 }
 
 output "image" {
   description = "Image to run as container"
-  value       = var.image
+  value       = ansible_playbook.container.extra_vars.image
 }
 
 output "ports" {
@@ -36,7 +36,7 @@ output "privileged" {
 
 output "user" {
   description = "The user the container is run with"
-  value       = var.user
+  value       = var.user != null ? var.user : "root"
 }
 
 output "command" {
@@ -61,7 +61,7 @@ output "network" {
 
 output "conmon_pidfile" {
   description = "The path to a file, in which conmon stores the containers PID"
-  value       = var.conmon_pidfile # TODO
+  value       = var.conmon_pidfile
 }
 
 output "labels" {

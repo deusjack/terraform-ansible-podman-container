@@ -6,7 +6,7 @@
       containers.podman.podman_container:
         name: "{{ container_name }}"
         image: "{{ image }}"
-        state: started
+        state: quadlet
         recreate: true
         ports: "{{ ports }}"
         cap_add: "{{ cap_add }}"
@@ -19,6 +19,8 @@
         network: "{{ network }}"
         conmon_pidfile: "{{ conmon_pidfile | default(omit) }}"
         labels: "{{ labels | default(omit) }}"
+        quadlet_filename: "{{ container_name }}"
+        #quadlet_dir: /etc/containers/systemd/
         quadlet_options:
           - "AutoUpdate=registry"
           - "Pull=true"
