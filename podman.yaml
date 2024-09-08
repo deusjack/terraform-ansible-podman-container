@@ -24,7 +24,6 @@
         quadlet_filename: "{{ container_name }}"
         quadlet_options:
           - "AutoUpdate=registry"
-          - "Pull=true"
           - |
             [Install]
             WantedBy=default.target
