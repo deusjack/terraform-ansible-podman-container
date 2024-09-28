@@ -31,7 +31,7 @@ resource "ansible_playbook" "container" {
 
 module "systemd" {
   depends_on = [ansible_playbook.container]
-  source     = "git@github.com:deusjack/module-systemd.git?ref=1.0.0"
+  source     = "git@github.com:deusjack/terraform-ansible-systemd.git?ref=1.0.0"
   hostname   = var.hostname
   unit_name  = "systemd-${var.name}"
   external_triggers = {
